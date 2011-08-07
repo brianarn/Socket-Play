@@ -43,7 +43,7 @@ io.sockets.on('connection', function(socket){
 	console.log('Connection!',socket.id);
 	setTimeout(function(){
 		socket.disconnect();
-	}, 1000);
+	}, 5000);
 });
 
 // Starting it all up
