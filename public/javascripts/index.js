@@ -1,5 +1,9 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect();
 
-socket.on('message', function(msg){
-	console.log('Message received: ', msg);
+socket.on('connect', function(){
+	console.log('I am connected!',arguments);
+});
+
+socket.on('disconnect', function(){
+	console.log('I am disconnected!',arguments);
 });

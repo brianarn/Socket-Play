@@ -39,14 +39,14 @@ app.get('/', function(req, res){
 
 io = io.listen(app);
 
-// Starting it all up
-
-app.listen(3000);
-
 io.sockets.on('connection', function(socket){
-	console.log('Connection!');
-	socket.send('Boooooo');
-	socket.disconnect();
+	console.log('Connection!',socket.id);
+	setTimeout(function(){
+		socket.disconnect();
+	}, 1000);
 });
 
+// Starting it all up
+
+app.listen(4000);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
