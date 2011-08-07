@@ -40,6 +40,10 @@ app.get('/', function(req, res){
 io = io.listen(app);
 
 io.sockets.on('connection', function(socket){
+	socket.broadcast.emit('message', 'User Connected');
+	socket.on('message', function(msg) {
+		socket.broadcast.emit('message', msg);
+	});
 });
 
 // Starting it all up
